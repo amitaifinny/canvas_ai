@@ -1,0 +1,15 @@
+.ai-image {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px#0076c6;
+}
+
+.ai-button {
+    background: none;
+    border: none;
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    cursor: pointer;
+}
