@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="styles/chatbot.css">
     <script src="main.js" defer></script>
     <title>Canvas Chat Bot Testing</title>
 </head>
 <body>
     <div class ="chat-container">
         <div class ="chat-header">
-            <button class="back-button"></button>
+            <button class="back-button">
+                &larr;
+            </button>
             <img src="images/studybuddy3.png" class="chatbot-image" alt="study buddy image">
-            <h2 class="chat-name">Studybuddy</h2>
+            <h2 class="chat-name">StudyBuddy</h2>
         </div>
         <div class="chat-messages"></div>
         <div class="chat-input-area">
             <textarea placeholder="Type your message..." id="message-input"></textarea>
-            <button class="send-button"></button>
+            <button class="send-button">
+                <img src="images/real-send-button.png" class="send-image" alt="send button">
+            </button>
         </div>
     </div>
     <section>

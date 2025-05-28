@@ -1,0 +1,87 @@
+.ai-image {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px#0076c6;
+}
+
+.ai-button {
+    background: none;
+    border: none;
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    cursor: pointer;
+}
+
+
+.chat-container {
+display: flex;
+flex-direction: column;
+border: solid 3px black;
+max-width: 25rem;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 3px black;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 1rem;
+    font-size: 1.75rem;
+    font-weight: 900;
+}
+
+.back-button:hover {
+    opacity: 0.5;
+}
+
+.chatbot-image {
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.chat-name {
+    margin: 0.5rem;
+}
+
+.chat-input-area {
+    padding-bottom: 0.5rem;
+    display: flex;
+}
+
+.send-image {
+    height: 1.5rem;
+}
+
+.send-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;  /* Make this scrollable */
+  height: 250px;
+}
+
+#message-input {
+    width: 30rem;
+    border: none;
+    background: none;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    /* align-content: center; */
+    height: auto;
+    min-height: 30px;
+    max-height: 100px;
+    resize: none;
+}
