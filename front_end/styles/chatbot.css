@@ -86,6 +86,9 @@
 
 .chat-messages {
     flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     padding: 10px;
     overflow-y: auto;  /* Make this scrollable */
     height: 250px;
@@ -100,6 +103,7 @@
     background-color: black;
     color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    grid-column: 2/2;
 }
 
 .show-classes:hover {
