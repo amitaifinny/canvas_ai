@@ -24,13 +24,15 @@
 
 
 .chat-container {
+    display: none;
+    flex-direction: column;
     position: fixed;
     bottom: 80px;
     right: 20px;
     width: 350px;
     /* display: flex;
     flex-direction: column; */
-    border: solid 3px black;
+    /* border: solid 3px black; */
     border-radius: 10px;
     max-width: 25rem;
     max-height: 500px;
@@ -84,17 +86,87 @@
     cursor: pointer;
 }
 
-.chat-messages {
-    flex: 1;
+/* .chat-messages {
+    flex-grow: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     padding: 10px;
-    overflow-y: auto;  /* Make this scrollable */
+    overflow-y: auto; 
     height: 250px;
-    background-color: #006EB6;
+    background-color: #A0D4ED;
+} */
+
+.chat-messages { /* Using the class here as well for better reusability and default styling */
+    flex-grow: 1; /* Allows this div to take up available space in the column */
+    display: flex; /* CRITICAL FIX: Use flexbox for correct message stacking */
+    flex-direction: column; /* CRITICAL FIX: Stack individual messages vertically */
+    padding: 10px; /* Padding around the entire message area */
+    overflow-y: auto; /* Makes the entire message area scrollable when content overflows */
+    background-color: #e0e0e0; /* A light background for the chat history area */
+    align-items: flex-start; /* Default alignment to the left for content */
+    justify-content: flex-end; /* CRITICAL FIX: Push messages to the bottom (like typical chat) */
+    /* REMOVED: grid-template-columns, grid-template-rows, height: 250px */
 }
 
+/* Base style for ALL individual message bubbles (both user and AI) */
+/* This class is added by JavaScript to every new message div. */
+/* Using `div.chat-message` to be specific and to ensure it doesn't conflict with any other element */
+div.chat-message { 
+    padding: 8px 12px; /* Padding inside the message bubble */
+    border-radius: 18px; /* Rounded corners for the bubbles */
+    margin-bottom: 10px; /* Space between message bubbles */
+    max-width: 75%; /* Limit message bubble width */
+    word-wrap: break-word; /* Ensure long words break within the bubble */
+    font-size: 0.95rem;
+    line-height: 1.4;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1); /* Subtle shadow for bubbles */
+    /* Background color will be set by .ai-message or .user-message */
+}
+
+/* Specific style for AI (bot) messages */
+/* This class is added by JavaScript to the AI message div */
+.ai-message {
+    background-color: #A0D4ED; /* Blue background for AI messages (kept your color) */
+    color: #333; /* White text for AI messages */
+    margin-right: auto; /* Pushes AI messages to the left */
+    align-self: flex-start; /* Aligns content to the start of the flex container */
+    border-bottom-left-radius: 2px; /* Sharpen bottom left corner for "tail" effect */
+}
+
+/* NEW: Specific style for user messages. This class is added by JavaScript. */
+.user-message { 
+    background-color: #006EB6; /* Light green background for user messages */
+    color: white; /* Darker text for user messages */
+    margin-left: auto; /* Pushes user messages to the right */
+    align-self: flex-end; /* Aligns content to the end of the flex container */
+    border-bottom-right-radius: 2px; /* Sharpen bottom right corner for "tail" effect */
+}
+
+
+/* CRITICAL FIX: Style for the 'What classes am I taking' BUTTON (with id="show-classes") */
+/* This specifically targets the initial BUTTON element with this class. */
+/* Its styling is adjusted to exactly match how a 'user-message' div looks. */
+button.show-classes { 
+    border: none; /* Remove border from button */
+    border-radius: 18px; /* Match message bubble border-radius */
+    padding: 8px 12px; /* Match message bubble padding */
+    cursor: pointer;
+    background-color: #006EB6; /* Match user message background */
+    color: white; /* Match user message text color */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1); /* Match subtle shadow */
+    align-self: flex-end; /* Align button to the right, consistent with user messages */
+    margin-left: auto; /* Push button to the right */
+    margin-bottom: 10px; /* Space below the button */
+    margin-top: 5px; /* Adjust top margin for spacing */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth hover */
+}
+
+button.show-classes:hover {
+    background-color: #006EB6; /* Slightly darker green on hover */
+    color: #222; /* Slightly darker text on hover */
+    /* Keep other button styles from original hover if not overridden */
+}
 .show-classes {
     border: solid 3px black;
     border-radius: 5px;
@@ -105,6 +177,7 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     grid-column: 2/2;
 }
+
 
 .show-classes:hover {
     background-color: white;
