@@ -97,7 +97,7 @@
     background-color: #A0D4ED;
 } */
 
-.chat-messages { /* Using the class here as well for better reusability and default styling */
+.chat-messages { 
     flex-grow: 1; /* Allows this div to take up available space in the column */
     display: flex; /* CRITICAL FIX: Use flexbox for correct message stacking */
     flex-direction: column; /* CRITICAL FIX: Stack individual messages vertically */
@@ -105,8 +105,8 @@
     overflow-y: auto; /* Makes the entire message area scrollable when content overflows */
     background-color: #e0e0e0; /* A light background for the chat history area */
     align-items: flex-start; /* Default alignment to the left for content */
-    justify-content: flex-end; /* CRITICAL FIX: Push messages to the bottom (like typical chat) */
-    /* REMOVED: grid-template-columns, grid-template-rows, height: 250px */
+    justify-content: flex-start; /* CRITICAL FIX: Push messages to the bottom (like typical chat) */
+    max-height: 250px;/* REMOVED: grid-template-columns, grid-template-rows, height: 250px */
 }
 
 /* Base style for ALL individual message bubbles (both user and AI) */
@@ -163,7 +163,7 @@ button.show-classes {
 }
 
 button.show-classes:hover {
-    background-color: #006EB6; /* Slightly darker green on hover */
+    background-color: #006EB6;
     color: #222; /* Slightly darker text on hover */
     /* Keep other button styles from original hover if not overridden */
 }
